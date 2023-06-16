@@ -16,8 +16,7 @@ export const ProdutoStoreModel = types
       store.setProp('loading', true)
 
       const response = await api.getProducts()
-        .then(() => store.setProp('loading', false))
-        .then(() => response)
+        .finally(() => store.setProp('loading', false))
 
       if (response.kind === "ok") {
         store.setProp("produtos", response.produtos)
