@@ -89,6 +89,7 @@ export const iconRegistry = {
   bell: require("../../assets/icons/bell.png"),
   caretLeft: require("../../assets/icons/caretLeft.png"),
   caretRight: require("../../assets/icons/caretRight.png"),
+  cart: require("../../assets/icons/cart.png"),
   check: require("../../assets/icons/check.png"),
   clap: require("../../assets/icons/clap.png"),
   community: require("../../assets/icons/community.png"),

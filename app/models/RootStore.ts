@@ -1,9 +1,13 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
 
+import { ProdutoStoreModel } from "./ProdutoStore"
+import { CartStoreModel } from "./CartStore"
 /**
  * A RootStore model.
  */
 export const RootStoreModel = types.model("RootStore").props({
+    produtoStore: types.optional(ProdutoStoreModel, {}),
+    cartStore: types.optional(CartStoreModel, {})
 })
 
 /**

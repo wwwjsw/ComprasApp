@@ -6,14 +6,18 @@
  * documentation for more details.
  */
 import {
+  ApiResponse,
   ApisauceInstance,
   create,
 } from "apisauce"
 import Config from "../../config"
+import { GeneralApiProblem, getGeneralApiProblem } from "./apiProblem" // @demo remove-current-line
 import type {
   ApiConfig,
+  ApiProdutoResponse
 } from "./api.types"
 
+import type { ProdutoSnapshotIn } from "app/models/Produto"
 /**
  * Configuring the apisauce instance.
  */
@@ -44,7 +48,31 @@ export class Api {
     })
   }
 
+  
+  async getProducts(): Promise<{ kind: "ok"; produtos: ProdutoSnapshotIn[] } | GeneralApiProblem> {
+    const response: ApiResponse<ApiProdutoResponse[]> = await this.apisauce.get(
+      `54f92babe9585add9f4646cbd679f7b0/raw/d3066dfa91b0b751187a9abab721a8def121ac46/cafes.json`
+    )
+
+    if (!response.ok) {
+      const problem = getGeneralApiProblem(response)
+      if (problem) return problem
+    }
+    console.log(response)
+    try {
+      const rawData = response.data
+      const produtos: ProdutoSnapshotIn[] = rawData.map((raw) => ({
+        ...raw,
+      }))
+
+      return { kind: "ok", produtos }
+    } catch (e) {
+      if (__DEV__) {
+        console.tron.error(`Bad data: ${e.message}\n${response.data}`, e.stack)
+      }
+      return { kind: "bad-data" }
+    }
+  }
 }
 
-// Singleton instance of the API for convenience
 export const api = new Api()

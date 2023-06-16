@@ -1,12 +1,12 @@
-# Welcome to your new ignited app!
+# App de exemplo para compras de pacotes de presentes digitais, Desafio Stone tech.
 
-[![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
+## Foi usado o React Native boilerplate [Ignite](https://github.com/infinitered/ignite)
 
-## The latest and greatest boilerplate for Infinite Red opinions
+#### TODO: implementar CircleCI 
+[![CircleCI](https://circleci.com/gh/wwwjsw/comprasApp.svg?style=svg)](https://circleci.com/gh/wwwjsw/ComprasApp)
+ r
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
-
-Currently includes:
+## Incluido nos pacotes:
 
 - React Native
 - React Navigation
@@ -16,7 +16,7 @@ Currently includes:
 
 ## Quick Start
 
-The Ignite boilerplate project's structure will look similar to this:
+A estrutura do Ignite boilerplate vai parecer com isso:
 
 ```
 ignite-project
@@ -122,9 +122,4 @@ This directory will hold your Jest configs and mocks.
 
 Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe from the [Ignite Cookbook](https://ignitecookbook.com/)!
 
-## Previous Boilerplates
-
-- [2018 aka Bowser](https://github.com/infinitered/ignite-bowser)
-- [2017 aka Andross](https://github.com/infinitered/ignite-andross)
-- [2016 aka Ignite 1.0](https://github.com/infinitered/ignite-ir-boilerplate-2016)
 
