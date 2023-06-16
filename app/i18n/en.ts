@@ -8,6 +8,9 @@ const en = {
     title: 'Shopping',
     addProduct: 'Add',
     removeProduct: 'Remove product'
+  },
+  cart: {
+    title: 'Cart',
   }
 }
 

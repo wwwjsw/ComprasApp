@@ -58,7 +58,7 @@ export class Api {
       const problem = getGeneralApiProblem(response)
       if (problem) return problem
     }
-    console.log(response)
+
     try {
       const rawData = response.data
       const produtos: ProdutoSnapshotIn[] = rawData.map((raw) => ({

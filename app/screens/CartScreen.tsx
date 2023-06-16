@@ -22,12 +22,12 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen(prop
   useEffect(() => {
   }, [cartStore])
   
-  const handlePressCart = () => navigation.navigate("Cart")
+  const handlePressBackButton = () => navigation.goBack()
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: true,
-      header: () => <Header titleTx='shopping.title' leftIcon="heart" rightIcon="cart" onRightPress={handlePressCart}/>,
+      header: () => <Header titleTx='cart.title' leftIcon="caretLeft" onLeftPress={handlePressBackButton} />,
     })
   }, [])
   return <></>
