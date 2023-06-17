@@ -13,6 +13,7 @@ export const ProdutoModel = types
     avaliacao: types.number,
     imagem: types.string,
     descricao: types.string,
+    inCart: types.optional(types.boolean, false)
   })
   .actions(withSetPropAction)
   .views((self) => ({})) // eslint-disable-line @typescript-eslint/no-unused-vars

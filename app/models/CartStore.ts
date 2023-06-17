@@ -1,4 +1,4 @@
-import { Instance, SnapshotIn, SnapshotOut, types, getSnapshot } from "mobx-state-tree"
+import { Instance, SnapshotIn, SnapshotOut, types, detach } from "mobx-state-tree"
 
 import { withSetPropAction } from "./helpers/withSetPropAction"
 import { ProdutoModel, Produto } from "./Produto"
@@ -18,18 +18,14 @@ export const CartStoreModel = types
   .actions((self) => ({
     addOrRemoveProduct(item: Produto) {
       const existingItem = self.cartItems.find((i) => i.id === item.id);
-  
+
       if (existingItem) {
-        const indexOfObject = self.cartItems.findIndex((cartItem) => {
-          return cartItem.id === item.id;
-        });
-  
+        const indexOfObject = self.cartItems.findIndex((cartItem) => cartItem.id === item.id);
+        detach(self.cartItems[indexOfObject]);
         self.cartItems.splice(indexOfObject, 1);
       } else {
-        const itemSnapshot = getSnapshot(item);
-        const copiedItem = ProdutoModel.create(itemSnapshot);
-  
-        self.cartItems.push({ quantity: 1, ...copiedItem });
+        const newItem = CartModel.create({ ...item, inCart: true, quantity: 1 });
+        self.cartItems.push(newItem);
       }
     },
   }))

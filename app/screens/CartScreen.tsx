@@ -5,7 +5,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "app/navigators"
 import { AutoImage, Button, Card, EmptyState, Header, Icon, Screen, Text } from "app/components"
 import { colors, spacing } from "app/theme"
-import { Cart, useStores } from "app/models"
+import { Cart, Produto, useStores } from "app/models"
 // import { useNavigation } from "@react-navigation/native"
 // import { useStores } from "app/models"
 
@@ -14,10 +14,6 @@ interface CartScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Ca
 export const CartScreen: FC<CartScreenProps> = observer(function CartScreen(props) {
   const { navigation } = props
   const { produtoStore, cartStore } = useStores()
-
-  useEffect(() => {
-    produtoStore.fetchProducts()
-  }, [produtoStore])
 
   useEffect(() => {
   }, [cartStore])
@@ -30,24 +26,21 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen(prop
       header: () => <Header titleTx='cart.title' leftIcon="caretLeft" onLeftPress={handlePressBackButton} />,
     })
   }, [])
-  return <></>
-  //TODO : implementar o restante da lista do cart
+
   return (
     <Screen
       preset="fixed"
       style={$container}
     >
-      <Text text={JSON.stringify(cartStore.total, null, 4)} size="sm" />
-      <FlatList<Cart>
+      <FlatList<Produto>
         data={cartStore.cartItems}
-        numColumns={2}
+        numColumns={1}
         ListEmptyComponent={
           produtoStore.isLoading ? (
             <ActivityIndicator />
           ) : (
             <EmptyState
               preset="generic"
-              //style={$emptyState}
               ImageProps={{ resizeMode: "contain" }}
             />
           )
@@ -77,9 +70,10 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen(prop
             }
             FooterComponent={
               <Button
+                preset={item.inCart ? 'default' : 'filled'}
                 style={$addProductButton}
-                tx="shopping.addProduct"
-                RightAccessory={(props) => <Icon {...props} icon="check"/>}
+                tx={item.inCart ? "shopping.removeProduct" : "shopping.addProduct"}
+                RightAccessory={(props) => <Icon {...props} icon={item.inCart ? "x" : "check"} />}
                 onPress={() => cartStore.addOrRemoveProduct(item)}
               />
             }

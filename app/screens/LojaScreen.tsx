@@ -29,17 +29,14 @@ export const LojaScreen: FC<LojaScreenProps> = observer(function LojaScreen(prop
 
   useEffect(() => {
     produtoStore.fetchProducts()
-  }, [produtoStore])
-
-  useEffect(() => {
-  }, [cartStore])
+  }, [])
   
   const handlePressCart = () => navigation.navigate("Cart")
-
+  
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: true,
-      header: () => <Header titleTx='shopping.title' leftIcon="heart" rightIcon="cart" onRightPress={handlePressCart}/>,
+      header: () => <Header leftTx="shopping.title" rightIcon="cart" onRightPress={handlePressCart} />
     })
   }, [])
 
@@ -48,7 +45,6 @@ export const LojaScreen: FC<LojaScreenProps> = observer(function LojaScreen(prop
       preset="fixed"
       style={$container}
     >
-      <Text text={JSON.stringify(cartStore.total, null, 4)} size="sm" />
       <FlatList<Produto>
         data={produtoStore.produtosForList}
         numColumns={2}
@@ -58,7 +54,6 @@ export const LojaScreen: FC<LojaScreenProps> = observer(function LojaScreen(prop
           ) : (
             <EmptyState
               preset="generic"
-              //style={$emptyState}
               ImageProps={{ resizeMode: "contain" }}
             />
           )
@@ -88,9 +83,10 @@ export const LojaScreen: FC<LojaScreenProps> = observer(function LojaScreen(prop
             }
             FooterComponent={
               <Button
+                preset={item.inCart ? 'default' : 'filled'}
                 style={$addProductButton}
-                tx="shopping.addProduct"
-                RightAccessory={(props) => <Icon {...props} icon="check"/>}
+                tx={item.inCart ? "shopping.removeProduct" : "shopping.addProduct"}
+                RightAccessory={(props) => <Icon {...props} icon={item.inCart ? "x" : "check"} />}
                 onPress={() => cartStore.addOrRemoveProduct(item)}
               />
             }
