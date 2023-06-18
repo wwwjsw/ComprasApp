@@ -11,6 +11,7 @@ const en = {
   },
   cart: {
     title: 'Cart',
+    headerIndicator: '{{total}} Produto(s) no carrinho'
   }
 }
 

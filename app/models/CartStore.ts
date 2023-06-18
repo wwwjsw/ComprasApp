@@ -1,4 +1,4 @@
-import { Instance, SnapshotIn, SnapshotOut, types, detach } from "mobx-state-tree"
+import { Instance, SnapshotIn, SnapshotOut, types, detach, getParent } from "mobx-state-tree"
 
 import { withSetPropAction } from "./helpers/withSetPropAction"
 import { ProdutoModel, Produto } from "./Produto"
@@ -17,17 +17,28 @@ export const CartStoreModel = types
   .actions(withSetPropAction)
   .actions((self) => ({
     addOrRemoveProduct(item: Produto) {
-      const existingItem = self.cartItems.find((i) => i.id === item.id);
+      const existingItemIndex = self.cartItems.findIndex((cartItem) => cartItem.id === item.id);
 
-      if (existingItem) {
-        const indexOfObject = self.cartItems.findIndex((cartItem) => cartItem.id === item.id);
-        detach(self.cartItems[indexOfObject]);
-        self.cartItems.splice(indexOfObject, 1);
+      if (existingItemIndex >= 0) {
+        self.cartItems.splice(existingItemIndex, 1);
       } else {
-        const newItem = CartModel.create({ ...item, inCart: true, quantity: 1 });
+        const newItem = CartModel.create({...item, quantity: 1, inCart: !item.inCart });
         self.cartItems.push(newItem);
       }
     },
+    // addOrRemoveProduct(item: Produto) {
+    //   const existingItemIndex = self.cartItems.findIndex((cartItem) => cartItem.id === item.id);
+      
+    //   if (existingItemIndex >= 0) {
+    //     console.warn('getParent', getParent(self, 1).cartStore)
+    //     self.cartItems.splice(existingItemIndex, 1);
+
+    //   } else {
+    //     const newItem = CartModel.create({ ...item, quantity: 1, inCart: !item.inCart });
+    //     self.cartItems.push(newItem);
+    //   }
+    // },
+
   }))
   .views((store) => ({
     get cartItemsForList() {

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useLayoutEffect } from "react"
 import { observer } from "mobx-react-lite"
-import { ActivityIndicator, FlatList, ImageStyle, ViewStyle } from "react-native"
+import { ActivityIndicator, FlatList, ImageStyle, View, ViewStyle } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "app/navigators"
 import { AutoImage, Button, Card, EmptyState, Header, Icon, Screen, Text } from "app/components"
@@ -16,7 +16,7 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen(prop
   const { produtoStore, cartStore } = useStores()
 
   useEffect(() => {
-  }, [cartStore])
+  }, [produtoStore, cartStore])
   
   const handlePressBackButton = () => navigation.goBack()
 
@@ -32,18 +32,18 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen(prop
       preset="fixed"
       style={$container}
     >
-      <FlatList<Produto>
+      <View style={$infoContainer}>
+        <Text tx='cart.headerIndicator' txOptions={{ total: cartStore.total }} text={cartStore.total} />
+        <Icon icon='cart' />
+      </View>
+      <FlatList<Cart>
         data={cartStore.cartItems}
         numColumns={1}
         ListEmptyComponent={
-          produtoStore.isLoading ? (
-            <ActivityIndicator />
-          ) : (
-            <EmptyState
-              preset="generic"
-              ImageProps={{ resizeMode: "contain" }}
-            />
-          )
+          <EmptyState
+            preset="generic"
+            ImageProps={{ resizeMode: "contain" }}
+          />
         }
         renderItem={({ item }) => (
           <Card
@@ -90,6 +90,13 @@ const $container: ViewStyle = {
   backgroundColor: colors.background,
 }
 
+const $infoContainer: ViewStyle = {
+  marginHorizontal: spacing.sm,
+  paddingHorizontal: spacing.sm,
+  flexDirection: "row",
+  alignSelf: "center",
+  marginBottom: spacing.sm,
+}
 
 const $cardContainer: ViewStyle = {
   marginHorizontal: spacing.sm,
