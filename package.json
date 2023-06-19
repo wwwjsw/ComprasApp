@@ -108,6 +108,7 @@
     "query-string": "^7.0.1",
     "react-devtools-core": "4.24.7",
     "react-dom": "18.2.0",
+    "react-native-set-version": "^1.1.2",
     "react-native-web": "~0.18.7",
     "react-test-renderer": "18.2.0",
     "reactotron-core-client": "^2.8.10",
