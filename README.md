@@ -2,6 +2,8 @@
 
 ## Foi usado o React Native boilerplate [Ignite](https://github.com/infinitered/ignite)
 
+![image](https://github.com/wwwjsw/ComprasApp/assets/10338666/08ffb107-3e83-4cf5-a225-a54ed0e488aa)
+
 ## Incluido nos pacotes:
 
 - React Native
