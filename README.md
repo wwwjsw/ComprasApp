@@ -1,10 +1,6 @@
-# App de exemplo para compras de pacotes de presentes digitais, Desafio Stone tech.
+# App de exemplo para compras de cafés, Desafio Stone tech.
 
 ## Foi usado o React Native boilerplate [Ignite](https://github.com/infinitered/ignite)
-
-#### TODO: implementar CircleCI 
-[![CircleCI](https://circleci.com/gh/wwwjsw/comprasApp.svg?style=svg)](https://circleci.com/gh/wwwjsw/ComprasApp)
- r
 
 ## Incluido nos pacotes:
 
@@ -12,7 +8,17 @@
 - React Navigation
 - MobX State Tree
 - TypeScript
-- And more!
+- i18n
+
+### Dependências
+- node.js >= 18.16.0
+- Instalar [ngrok](https://docs.expo.dev/more/expo-cli/#tunneling) para o seridor de desenvolvimento ou caso o projeto vá rodar em emulador basta remover a opção `--tunnel` do arquivo `package.json` no script `expo:start`.
+
+## Setup do projeto
+ - Clonar o repositório: `git clone git@github.com:wwwjsw/ComprasApp.git`.
+ - Acessar a pasta pelo terminal: `cd ComprasApp`.
+ - Instalar dependências: `npm install`.
+ - Rodar o servidor do projeto `npm run expo:start`.
 
 ## Quick Start
 
@@ -64,11 +70,11 @@ ignite-project
 
 ```
 
-### ./app directory
+### O diretório ./app
 
-Included in an Ignite boilerplate project is the `app` directory. This is a directory you would normally have to create when using vanilla React Native.
+Incluído em um projeto boilerplate do Ignite está o diretório `app`. Este é um diretório que você normalmente teria que criar ao usar o vanilla React Native.
 
-The inside of the `app` directory looks similar to the following:
+Internamente o diretório `app` vai se parecer similar com o seguinte:
 
 ```
 app
@@ -85,41 +91,40 @@ app
 ```
 
 **components**
-This is where your reusable components live which help you build your screens.
+É aqui que vivem os seus componentes reutilizáveis que o ajudam a construir as suas telas.
 
 **i18n**
-This is where your translations will live if you are using `react-native-i18n`.
+É aqui que suas traduções estão se você estiver usando `react-native-i18n`.
 
 **models**
-This is where your app's models will live. Each model has a directory which will contain the `mobx-state-tree` model file, test file, and any other supporting files like actions, types, etc.
+É aqui que os modelos do seu aplicativo vão morar. Cada modelo tem um diretório que conterá o arquivo de modelo `mobx-state-tree`, arquivo de teste e quaisquer outros arquivos de suporte, como ações, tipos, etc.
 
 **navigators**
-This is where your `react-navigation` navigators will live.
+É aqui onde fica a navegação do `react-navigation`.
 
 **screens**
-This is where your screen components will live. A screen is a React component which will take up the entire screen and be part of the navigation hierarchy. Each screen will have a directory containing the `.tsx` file, along with any assets or other helper files.
+É aqui que os componentes da tela vão morar. Uma tela é um componente do React que ocupará toda a tela e fará parte da hierarquia de navegação. Cada tela terá um diretório contendo o arquivo '.tsx', juntamente com quaisquer ativos ou outros arquivos auxiliares.
+
 
 **services**
-Any services that interface with the outside world will live here (think REST APIs, Push Notifications, etc.).
+Quaisquer serviços que interajam com o mundo exterior viverão aqui (pense em APIs REST, Notificações Push, etc.).
 
 **theme**
-Here lives the theme for your application, including spacing, colors, and typography.
+Aqui reside o tema para seu aplicativo, incluindo espaçamento, cores e tipografia.
 
 **utils**
-This is a great place to put miscellaneous helpers and utilities. Things like date helpers, formatters, etc. are often found here. However, it should only be used for things that are truly shared across your application. If a helper or utility is only used by a specific component or model, consider co-locating your helper with that component or model.
+Este é um ótimo lugar para colocar ajudantes e utilitários diversos. Coisas como ajudantes de data, formatters, etc. são frequentemente encontrados aqui. No entanto, ele só deve ser usado para coisas que são realmente compartilhadas em seu aplicativo. Se um auxiliar ou utilitário for usado apenas por um componente ou modelo específico, considere colocalizar seu auxiliar com esse componente ou modelo.
 
-**app.tsx** This is the entry point to your app. This is where you will find the main App component which renders the rest of the application.
+**app.tsx** Este é o ponto de entrada para seu aplicativo. É aqui que você encontrará o componente principal do aplicativo que renderiza o resto do aplicativo.
 
 ### ./ignite directory
+O diretório `ignite` armazena todas as coisas do Ignite, incluindo CLI e itens do boilerplate. Aqui você encontrará modelos que você pode personalizar para ajudá-lo a começar a usar o React Native.
 
-The `ignite` directory stores all things Ignite, including CLI and boilerplate items. Here you will find templates you can customize to help you get started with React Native.
 
 ### ./test directory
+Este diretório manterá suas configurações Jest e mocks.
 
-This directory will hold your Jest configs and mocks.
-
-## Running Maestro end-to-end tests
-
+## Running Maestro end-to-end tests (NOT IMPLEMENTED)
 Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe from the [Ignite Cookbook](https://ignitecookbook.com/)!
 
 
