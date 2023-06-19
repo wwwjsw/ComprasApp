@@ -13,6 +13,11 @@ const en = {
     title: 'Cart',
     headerIndicator: '{{total}} Products(s) in Car'
   },
+  errorScreen: {
+    title: "Erro",
+    friendlySubtitle: 'Consider contact with us if you get stuck in some error',
+    reset: "Reset App",
+  },
   emptyStateComponent: {
     generic: { 
       heading: 'Add products in home page =D',
