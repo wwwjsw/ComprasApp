@@ -22,7 +22,7 @@ export const CartStoreModel = types
       if (existingItemIndex >= 0) {
         self.cartItems.splice(existingItemIndex, 1);
       } else {
-        const newItem = CartModel.create({...item, quantity: 1, inCart: !item.inCart });
+        const newItem = CartModel.create({...item, inCart: !item.inCart });
         self.cartItems.push(newItem);
       }
     },

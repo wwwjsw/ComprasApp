@@ -13,7 +13,6 @@ export const CartModel = types
     avaliacao: types.number,
     imagem: types.string,
     descricao: types.string,
-    quantity: types.number,
     inCart: types.optional(types.boolean, true),
   })
   .actions(withSetPropAction)
