@@ -11,7 +11,14 @@ const en = {
   },
   cart: {
     title: 'Cart',
-    headerIndicator: '{{total}} Produto(s) no carrinho'
+    headerIndicator: '{{total}} Products(s) in Car'
+  },
+  emptyStateComponent: {
+    generic: { 
+      heading: 'Add products in home page =D',
+      content: "For now you don't have products here!",
+      button: 'Back Home'
+    }
   }
 }
 
