@@ -2,7 +2,7 @@
 
 ## Foi usado o React Native boilerplate [Ignite](https://github.com/infinitered/ignite)
 
-![image](https://github.com/wwwjsw/ComprasApp/assets/10338666/08ffb107-3e83-4cf5-a225-a54ed0e488aa)
+![ezgif com-video-to-gif](https://github.com/wwwjsw/ComprasApp/assets/10338666/d7167a50-fa3b-4474-bb1f-88336be262fd)
 
 ## Incluido nos pacotes:
 
