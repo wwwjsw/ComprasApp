@@ -43,6 +43,7 @@ export const CartScreen: FC<CartScreenProps> = observer(function CartScreen(prop
           <EmptyState
             preset="generic"
             ImageProps={{ resizeMode: "contain" }}
+            buttonOnPress={handlePressBackButton}
           />
         }
         renderItem={({ item }) => (
