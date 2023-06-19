@@ -11,7 +11,7 @@
 - i18n
 
 ### Dependências
-- node.js >= 18.16.0
+- node.js >= 18.12.0
 - Instalar [ngrok](https://docs.expo.dev/more/expo-cli/#tunneling) para o seridor de desenvolvimento ou caso o projeto vá rodar em emulador basta remover a opção `--tunnel` do arquivo `package.json` no script `expo:start`.
 
 ## Setup do projeto
