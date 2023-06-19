@@ -26,19 +26,6 @@ export const CartStoreModel = types
         self.cartItems.push(newItem);
       }
     },
-    // addOrRemoveProduct(item: Produto) {
-    //   const existingItemIndex = self.cartItems.findIndex((cartItem) => cartItem.id === item.id);
-      
-    //   if (existingItemIndex >= 0) {
-    //     console.warn('getParent', getParent(self, 1).cartStore)
-    //     self.cartItems.splice(existingItemIndex, 1);
-
-    //   } else {
-    //     const newItem = CartModel.create({ ...item, quantity: 1, inCart: !item.inCart });
-    //     self.cartItems.push(newItem);
-    //   }
-    // },
-
   }))
   .views((store) => ({
     get cartItemsForList() {
